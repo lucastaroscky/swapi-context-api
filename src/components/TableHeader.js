@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// nome das colunas
+
 export const tableHeader = [
   'name',
   'rotation_period',
@@ -15,6 +17,9 @@ export const tableHeader = [
   'edited',
   'url',
 ];
+
+// componente de classe que renderiza estrutura html 
+// através da função map que pega cada valor do array de nome das colunas e gera o head da table
 
 export class TableHeader extends Component {
   render() {

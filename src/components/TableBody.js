@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { tableHeader } from '../components/TableHeader';
 
+// componente de classe que recebe data como props
+// retorna estrutura html que retorna o body da  através de um map {props[array nome das colunas]}
+
 class TableBody extends Component {
   render() {
     const { data } = this.props;
