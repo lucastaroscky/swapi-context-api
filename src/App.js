@@ -7,9 +7,7 @@ function App() {
   return (
     <section>
       <Provider>
-        <table>
-          <Table />
-        </table>
+        <Table />
       </Provider>
     </section>
   );
