@@ -17,17 +17,33 @@ const Provider = ({ children }) => {
       )
   }, [])
 
+   const tableContent = [
+    'name',
+    'rotation_period',
+    'orbital_period',
+    'diameter',
+    'climate',
+    'gravity',
+    'terrain',
+    'surface_water',
+    'population',
+    'films',
+    'created',
+    'edited',
+    'url',
+  ];
+
   const context = {
     data,
     setData,
     loading,
     setLoading,
     inputValue,
-    setInputValue
+    setInputValue,
+    tableContent,
   };
 
   return (
-    loading ? <p>Loading</p> :
       <MyContext.Provider value={context}>
         {children}
       </MyContext.Provider>
