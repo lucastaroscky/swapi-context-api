@@ -25,12 +25,12 @@ const LoadingContainer = styled.section`
 `
 
 function App() {
-  const { loading } = useContext(MyContext);
+  const { loading, setInputValue } = useContext(MyContext);
   return (
     loading ? <LoadingContainer /> :
       <Fragment>
         <Header />
-        <Filter />
+        <Filter onChange={({ target }) => setInputValue(target.value)} />
         <Table />
       </Fragment>
   );

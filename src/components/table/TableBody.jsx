@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import FilterName from '../../utilities/FilterName';
 
 const Tbody = styled.tbody`
   font-size: smaller;
@@ -16,23 +17,22 @@ const Td = styled.td`
   padding: 0px 44px;
 `
 
-class TableBody extends Component {
-  render() {
-    const { data, body } = this.props;
-    return (
-      <Tbody>
-        {data.map((planet) => (
-          <Tr key={planet.name}> {
-            body.map((item) => (
-              <Td key={item}>
-                {planet[item]}
-              </Td>
-            ))}
-          </Tr>
-        ))}
-      </Tbody>
-    )
-  }
+function TableBody({ data, body }) {
+  let planets = data;
+  planets = FilterName();
+  return (
+    <Tbody>
+      {planets.map((planet) => (
+        <Tr key={planet.name}> {
+          body.map((item) => (
+            <Td key={item}>
+              {planet[item]}
+            </Td>
+          ))}
+        </Tr>
+      ))}
+    </Tbody>
+  );
 }
 
 export default TableBody;

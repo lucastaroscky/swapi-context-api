@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const space = require('../../assets/space.jpg');
+const darth = require('../../assets/darth.png');
 
 const Container = styled.section`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  background-image: url(${space});
+  background-color: black;
+  background-image: url(${darth});
   background-position-x: center;
   background-position-y: center;
   background-repeat: no-repeat;
-  height: 50vh;
+  height: 35vh;
 `
 
 const Section = styled.section`
@@ -24,7 +25,6 @@ const Section = styled.section`
 
 const Label = styled.label`
   font-family: 'Roboto', san-serif;
-  ${'' /* color: #1c1c1ce0; */}
   color: whitesmoke;
   padding: 2px;
 `
@@ -37,6 +37,20 @@ const Input = styled.input`
   border-width: thin;
   margin-left: 0;
   height: 4.5vh;
+  margin: 5px;
+  width: ${props => props.width}
+`
+
+const Button = styled.button`
+  background-color: whitesmoke;
+  border-color: #1c1c1c85;
+  border-radius: 3px;
+  border-style: groove;
+  border-width: thin;
+  height: 5vh;
+  margin-left: 0;
+  margin: 5px;
+  width: ${props => props.width}
 `
 
 const Select = styled.select`
@@ -49,14 +63,15 @@ const Select = styled.select`
   padding: 5px;
   width: 25vh;
   height: 5vh;
+  margin: 5px;
 `
 
-const Filter = () => {
+const Filter = ({ onChange }) => {
   return (
-    <Container>
+    <Container className="filter-container">
       <Section direction="column">
         <Label>Search:</Label>
-        <Input />
+        <Input onChange={onChange} />
       </Section>
       <Section direction="column">
         <Label>Selecione:</Label>
@@ -72,7 +87,8 @@ const Filter = () => {
             <option value="igual a">igual a</option>
             <option value="maior que">maior que</option>
           </Select>
-          <Input type="number" min="0" width="10" />
+          <Input type="number" width="2rem" min="0" placeholder="0" />
+          <Button width="4rem">Filter</Button>
         </Section>
       </Section>
     </Container>
